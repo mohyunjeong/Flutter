@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter0611/ex01_Button.dart';
-import 'package:flutter0611/ex02_checkBox.dart';
-import 'package:flutter0611/ex03_switchButton.dart';
-import 'package:flutter0611/ex04_radioButton.dart';
-import 'package:flutter0611/ex05_textField.dart';
-import 'package:flutter0611/ex06_Login.dart';
+import 'package:flutter0612/ex01_Toast.dart';
+import 'package:flutter0612/ex02_animatedText.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,28 +10,29 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: ExButton(),
-      // home: ExCheckBox(),
-      // home: ExSwitchButton(),
-      // home: ExRadioButton(),
-      // home: ExTextField(),
-      home: ExLogin(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: ExToast(),
+      home: ExAnimatedText(),
     );
   }
 }
 
-// stf -> Stateful 위젯 불러오기
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title}); // title을 무조건 required 해야 함
+  const MyHomePage({super.key, required this.title});
 
-  final String title; // 입력받은 title은 이곳에서 저장
+  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-  // createState() : 메소드의 이름 / 람다식으로 작성되어 있음!
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -55,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
+
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
