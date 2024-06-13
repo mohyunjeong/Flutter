@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter0612/ex01_Toast.dart';
-import 'package:flutter0612/ex02_animatedText.dart';
-import 'package:flutter0612/ex03_Onboarding.dart';
+import 'package:flutter0613/mainPage.dart';
+import 'package:flutter0613/popPage.dart';
+import 'package:flutter0613/ex06_Login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,22 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      // home: ExToast(),
-      // home: ExAnimatedText(),
-      home: ExOnBoarding(),
+      // home: mainPage(),
+      // home: popMainPage(),
+      home: ExLogin(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -54,9 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
