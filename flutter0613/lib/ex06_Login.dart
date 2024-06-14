@@ -8,7 +8,6 @@ class ExLogin extends StatefulWidget {
 }
 
 class _ExLoginState extends State<ExLogin> {
-
   TextEditingController emailCon = TextEditingController();
   TextEditingController pwCon = TextEditingController();
 
@@ -26,11 +25,13 @@ class _ExLoginState extends State<ExLogin> {
         ),
         backgroundColor: Colors.yellowAccent,
       ),
-      body: GestureDetector( // 화면에 대한 제스처를 감지할 수 있는 위젯
-        onTap: (){
+      body: GestureDetector(
+        // 화면에 대한 제스처를 감지할 수 있는 위젯
+        onTap: () {
           FocusScope.of(context).unfocus(); // 다른 화면을 누르면 키보드가 사라지게함
         },
-        child: SingleChildScrollView( // 키보드가 화면에 노출될 때 화면이 가려지는 오류를 막기위한 위젯!
+        child: SingleChildScrollView(
+          // 키보드가 화면에 노출될 때 화면이 가려지는 오류를 막기위한 위젯!
           child: Container(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
             color: Colors.white,
@@ -74,7 +75,22 @@ class _ExLoginState extends State<ExLogin> {
                       foregroundColor: Colors.black,
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => dataCheck()));
+
+                      // 로그인을 할 수 있는 사용자인지 체크 후 페이지 이동!
+                      if (emailCon.text == 'smhrd' && pwCon.text == '123') {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => dataCheck(
+                                  email: emailCon.text,
+                                  // 원하는 String 형태를 뽑기 위해 -> .text
+                                  pw: pwCon.text,
+                                )));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('로그인을 다시 시도하세요.'))
+                        );
+                      }
                     },
                     child: Text('로그인하기'),
                   ),
@@ -89,14 +105,26 @@ class _ExLoginState extends State<ExLogin> {
 }
 
 class dataCheck extends StatelessWidget {
-  const dataCheck({super.key});
+  final String email; // 일반 변수 -> 변할 수 있는 값 => final(다시는 변할 수 없는)
+  final String pw;
+
+  // const -> 상수! 변하지 않는 값!
+  const dataCheck(
+      {super.key,
+      required this.email, // null 값을 받지 않도록 required
+      required this.pw}); // const -> 상수(한번 지정시 형태를 그대로 쓰겠다)
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-
+        child: Center(
+          child: Container(
+            child: Text(
+              '$email님 환영합니다.',
+              style: TextStyle(fontSize: 30, color: Colors.yellow),
+            ),
+          ),
         ),
       ),
     );

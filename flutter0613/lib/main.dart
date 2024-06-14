@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter0613/mainPage.dart';
 import 'package:flutter0613/popPage.dart';
-import 'package:flutter0613/ex06_Login.dart';
+import 'package:flutter0613/screen/bottomPage.dart';
+import 'package:flutter0613/screen/routePage.dart';
+
+import 'package:flutter0613/screen/redPage.dart';
+import 'package:flutter0613/screen/greenPage.dart';
+import 'package:flutter0613/screen/bluePage.dart';
+
+import 'config/routeName.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +22,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
+      // 라우트 기법은 App에서 연결을 해야 한다!
+      // routes: {
+      //   '/red' : (context) => RedPage(),
+      //   '/green' : (context) => GreenPage(),
+      //   '/blue' : (context) => BluePage(),
+      // },
+
+      // routes: rn,
+
       // home: mainPage(),
       // home: popMainPage(),
-      home: ExLogin(),
+      // home: RoutePage(),
+      home: BottomPage(),
     );
   }
 }
