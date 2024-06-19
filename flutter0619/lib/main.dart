@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter0619/ex02_jsonParsing.dart';
+import 'package:flutter0619/Weather/ex01_location.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: ExJson(),
+      home: Location(),
     );
   }
 }
