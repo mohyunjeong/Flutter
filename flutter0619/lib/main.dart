@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter0619/ex02_jsonParsing.dart';
 import 'package:flutter0619/Weather/ex01_location.dart';
+import 'package:flutter0619/Weather/ex02_sample_weather.dart';
+import 'package:flutter0619/Weather/loading_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: "gothic",
+      ),
       // home: ExJson(),
-      home: Location(),
+      // home: Location(),
+      // home: ExWeather(),
+      home: LoadingPage(),
     );
   }
 }
